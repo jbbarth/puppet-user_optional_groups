@@ -14,6 +14,18 @@ use it in your manifests, OR you simply use :
       optional_groups   => 'www-data',
     }
 
+You can also specify an array of values :
+
+    user { 'jbbarth' :
+      optional_groups   => ['non-existent', 'mysql', 'foo'],
+    }
+
+The output should look like this :
+
+    % sudo puppet apply --execute 'user {"jbbarth": optional_groups => ["non-existent","mysql","foo"]}'
+    Notice: /User[jbbarth]/optional_groups: optional_groups changed 'adm,audio,cdrom,dip,lpadmin,plugdev,rvm,sambashare,staff,sudo,users' to 'adm,audio,cdrom,dip,lpadmin,mysql,plugdev,rvm,sambashare,staff,sudo,users'
+    Notice: Finished catalog run in 0.38 seconds
+
 **NB** : this attribute is by definition *NOT* idempotent. You may run puppet
 multiple times before converging to a stable state.
 
