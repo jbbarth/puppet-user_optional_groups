@@ -10,8 +10,7 @@ such case, either you define a custom fact to retrieve your local groups then
 use it in your manifests, OR you simply use :
 
     user { 'jbbarth':
-      groups            => ['staff', 'pulse-audio'],
-      optional_groups   => 'www-data',
+      optional_groups   => 'staff',
     }
 
 You can also specify an array of values :
