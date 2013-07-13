@@ -37,7 +37,7 @@ This extension is heavily based on the work of Dean Wilson :
 - https://github.com/deanwilson/puppet-file_ext_attributes
 - https://github.com/deanwilson/puppet-file_show_source
 
-Many thanks to him for providing a concrete and correct example of puppet
+Many thanks to him and Richard Clamp for providing a concrete and correct example of puppet
 internals extension from the outside!
 
 
