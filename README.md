@@ -40,11 +40,21 @@ Many thanks to him and Richard Clamp for providing a concrete and correct exampl
 internals extension from the outside!
 
 
+Compatibility
+-------------
+
+This plugin has only been tested on Linux and might break on other operating systems. I cannot think
+of a clean way to solve that now without attaching the extension to a provider, but the code is a bit
+obscure to me so I'll test that later.
+
+If non-Linux environments are a thing for you, let me know via an Issue !
+
+
 Deployment
 ----------
 
 Install this code as you would any other module and then, if you have a puppet
-master, restart it.
+master, restart it. **Please note that restart is _mandatory_, a reload is not enough.**
 
 
 License
