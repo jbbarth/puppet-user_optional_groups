@@ -54,7 +54,12 @@ Deployment
 ----------
 
 Install this code as you would any other module and then, if you have a puppet
-master, restart it. **Please note that restart is _mandatory_, a reload is not enough.**
+master, restart it. **Please note that restarting your puppetmaster is _mandatory_,
+a reload is not enough.**
+
+Also if you work in a client/server context (e.g. with a puppetmaster), you must
+have "pluginsync" option set to "true" on both the server and the client for this
+plugin to work.
 
 
 License
