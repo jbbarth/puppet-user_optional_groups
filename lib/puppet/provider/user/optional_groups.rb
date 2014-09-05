@@ -24,7 +24,7 @@ Puppet::Type.type(:user).newproperty(:optional_groups, :parent => Puppet::Proper
 
   #how to retrieve current value
   def retrieve
-    `id -nG #{@resource[:name]}`.split.sort
+    `id -nG #{resource.name}`.split.sort
   end
 
   #remove nil values in any processing (see #munge method)
@@ -34,6 +34,6 @@ Puppet::Type.type(:user).newproperty(:optional_groups, :parent => Puppet::Proper
 
   #set the new groups
   def set(groups)
-    `usermod -a -G #{groups} #{@resource[:name]}`
+    `usermod -a -G #{groups} #{resource.name}`
   end
 end
