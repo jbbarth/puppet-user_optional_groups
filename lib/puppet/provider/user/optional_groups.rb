@@ -1,4 +1,3 @@
-###    Dir.glob('/usr/local/rvm/gems/ruby-1.8.7-p374@puppet-work/gems/*/lib').each{|d|$:<<d};require 'pry';binding.pry
 Puppet::Type.type(:user).newproperty(:optional_groups, :parent => Puppet::Property::List) do
   desc %w{Define optional groups you want to add only if they exist
     on the system. This is usually good for human users you want to put in some
