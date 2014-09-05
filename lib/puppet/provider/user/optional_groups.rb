@@ -18,7 +18,7 @@ Puppet::Type.type(:user).newproperty(:optional_groups, :parent => Puppet::Proper
 
   #nullify value here if group doesn't exist
   munge do |value|
-    value = nil if `getent group #{value}` == ""
+    value = nil if `getent group #{value}` == "" || `getent passwd #{resource.name}` == ""
     value
   end
 
