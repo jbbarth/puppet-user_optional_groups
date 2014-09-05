@@ -18,8 +18,18 @@ Puppet::Type.type(:user).newproperty(:optional_groups, :parent => Puppet::Proper
 
   #nullify value here if group doesn't exist
   munge do |value|
-    value = nil if `getent group #{value}` == "" || `getent passwd #{resource.name}` == ""
+    value = nil if `getent group #{value}` == "" || user_not_yet_created?
     value
+  end
+
+  #is user already created? if not, don't do anything in this run else puppet will break
+  #see commit 95d83ce for more information
+  #
+  #this method does a bit of instance variable caching to avoid multiple shell-outs to
+  #"getent passwd" in a single run
+  def user_not_yet_created?
+    return @user_not_yet_created if defined?(@user_not_yet_created)
+    @user_not_yet_created = `getent passwd #{resource.name}` == ""
   end
 
   #how to retrieve current value
